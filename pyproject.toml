@@ -1,0 +1,52 @@
+[project]
+name="permutationtest"
+version="1.0.0"
+description="Permutation testing in python"
+authors = [
+    {name = "Steven Shave"},
+]
+readme = "README.md"
+requires-python = ">=3.9"
+keywords = ["permutation test", "non parametric testing"]
+dependencies = [
+    "numpy>=1.26.1",
+    "tqdm>=4.66.1",
+    ]
+[build-system]
+requires=[
+    "setuptools>=61.0.0",
+    ]
+build-backend="setuptools.build_meta"
+
+
+
+
+[tool.black]
+skip-string-normalization = true
+include = '''
+(
+    ^/tests/
+  | ^/src/
+  | ^/setup[.]py
+)
+'''
+exclude = '''
+(
+    __pycache__
+    |.*\.egg-info
+)
+'''
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.optional-dependencies]
+dev = [
+    'black==23.10.1',
+    'pytest==7.4.3',
+    'scikit==1.11.3',
+    'numpy==1.26.1',
+]
+
+[tool.pytest.ini_options]
+"testpaths" = "src/tests/test*.py"
